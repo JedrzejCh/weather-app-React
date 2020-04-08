@@ -21,12 +21,14 @@ class App extends Component {
   }
 
   handleInput = (e) => {
+
     this.setState({
       value: e.target.value
     })
   }
 
   handleSubmit = e => {
+
     e.preventDefault();
     const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&APPID=${APIKey}&units=metric`;
     fetch(API)
@@ -53,7 +55,7 @@ class App extends Component {
       .catch(err => {
         this.setState(prevState => ({
           err: true,
-          city: prevState.city
+          city: prevState.value
         }))
       })
   }
